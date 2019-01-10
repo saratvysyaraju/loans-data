@@ -18,6 +18,19 @@ def connect(db_file='/Users/svysyara/Downloads/database.sqlite'):
     return conn
 
 
+def run(sql):
+    """
+    Given a sql statement, runs it on the sqlite db and commits the transaction
+    :param sql: SQL to run on the SQLite db
+    :type sql: string
+    """
+    conn = connect()
+    transaction = conn.begin()
+    logging.info("Executing sql:\n{sql}".format(sql=sql))
+    conn.execute(sql)
+    transaction.commit()
+
+
 def add_data(table_name, source_file, insert_type='append'):
     """
     Method to add more rows of data to the specified sqlite table

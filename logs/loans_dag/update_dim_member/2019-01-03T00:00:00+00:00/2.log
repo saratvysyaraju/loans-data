@@ -1,0 +1,26 @@
+[2019-01-09 23:49:00,172] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.update_dim_member 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:49:00,176] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.update_dim_member 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:49:00,177] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 2 of 3
+--------------------------------------------------------------------------------
+
+[2019-01-09 23:49:00,183] {models.py:1595} INFO - Executing <Task(PythonOperator): update_dim_member> on 2019-01-03T00:00:00+00:00
+[2019-01-09 23:49:00,183] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run loans_dag update_dim_member 2019-01-03T00:00:00+00:00 --job_id 79 --raw -sd DAGS_FOLDER/dags/loans_dag.py --cfg_path /var/folders/54/73llq3hj17l3d8lq2zh93p_mmhwfff/T/tmpt8cdiuen']
+[2019-01-09 23:49:00,775] {base_task_runner.py:101} INFO - Job 79: Subtask update_dim_member [2019-01-09 23:49:00,775] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2019-01-09 23:49:00,929] {base_task_runner.py:101} INFO - Job 79: Subtask update_dim_member [2019-01-09 23:49:00,928] {models.py:271} INFO - Filling up the DagBag from /Users/svysyara/PycharmProjects/loans_data/dags/loans_dag.py
+[2019-01-09 23:49:01,321] {base_task_runner.py:101} INFO - Job 79: Subtask update_dim_member [2019-01-09 23:49:01,321] {cli.py:484} INFO - Running <TaskInstance: loans_dag.update_dim_member 2019-01-03T00:00:00+00:00 [running]> on host 784f43584f2d.ant.amazon.com
+[2019-01-09 23:49:01,336] {logging_mixin.py:95} INFO - [2019-01-09 23:49:01,336] {__init__.py:29} INFO - Executing sql:
+
+INSERT OR REPLACE INTO dim_member (member_id, emp_title, emp_length, home_ownership, annual_inc, zip_code, addr_state)
+SELECT DISTINCT member_id,
+    emp_title,
+    emp_length,
+    home_ownership,
+    annual_inc,
+    zip_code,
+    addr_state
+FROM loan
+WHERE issue_d = '2019-01-03'
+[2019-01-09 23:49:02,530] {python_operator.py:96} INFO - Done. Returned value was: None
+[2019-01-09 23:49:05,169] {logging_mixin.py:95} INFO - [2019-01-09 23:49:05,169] {jobs.py:2627} INFO - Task exited with return code 0

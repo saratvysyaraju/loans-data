@@ -1,0 +1,16 @@
+[2019-01-09 23:46:30,108] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.wait_for_loans 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:46:30,110] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.wait_for_loans 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:46:30,110] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 5 of 6
+--------------------------------------------------------------------------------
+
+[2019-01-09 23:46:30,118] {models.py:1595} INFO - Executing <Task(PythonSensor): wait_for_loans> on 2019-01-03T00:00:00+00:00
+[2019-01-09 23:46:30,118] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run loans_dag wait_for_loans 2019-01-03T00:00:00+00:00 --job_id 74 --raw -sd DAGS_FOLDER/dags/loans_dag.py --cfg_path /var/folders/54/73llq3hj17l3d8lq2zh93p_mmhwfff/T/tmpnrbp2h8x']
+[2019-01-09 23:46:30,799] {base_task_runner.py:101} INFO - Job 74: Subtask wait_for_loans [2019-01-09 23:46:30,799] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2019-01-09 23:46:30,936] {base_task_runner.py:101} INFO - Job 74: Subtask wait_for_loans [2019-01-09 23:46:30,935] {models.py:271} INFO - Filling up the DagBag from /Users/svysyara/PycharmProjects/loans_data/dags/loans_dag.py
+[2019-01-09 23:46:31,291] {base_task_runner.py:101} INFO - Job 74: Subtask wait_for_loans [2019-01-09 23:46:31,291] {cli.py:484} INFO - Running <TaskInstance: loans_dag.wait_for_loans 2019-01-03T00:00:00+00:00 [running]> on host 784f43584f2d.ant.amazon.com
+[2019-01-09 23:46:31,303] {python_sensor.py:79} INFO - Poking callable: <function check_loans_file_exists at 0x10c055ea0>
+[2019-01-09 23:46:31,304] {logging_mixin.py:95} INFO - [2019-01-09 23:46:31,304] {utils.py:24} INFO - Looking for file: /tmp/loans/2019-01-03/loan.csv
+[2019-01-09 23:46:31,304] {base_sensor_operator.py:79} INFO - Success criteria met. Exiting.
+[2019-01-09 23:46:35,108] {logging_mixin.py:95} INFO - [2019-01-09 23:46:35,107] {jobs.py:2627} INFO - Task exited with return code 0

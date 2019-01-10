@@ -1,0 +1,18 @@
+[2019-01-09 23:46:17,552] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.load_loans 2019-01-01T00:00:00+00:00 [queued]>
+[2019-01-09 23:46:17,556] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.load_loans 2019-01-01T00:00:00+00:00 [queued]>
+[2019-01-09 23:46:17,556] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 6 of 7
+--------------------------------------------------------------------------------
+
+[2019-01-09 23:46:17,562] {models.py:1595} INFO - Executing <Task(ShortCircuitOperator): load_loans> on 2019-01-01T00:00:00+00:00
+[2019-01-09 23:46:17,563] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run loans_dag load_loans 2019-01-01T00:00:00+00:00 --job_id 73 --raw -sd DAGS_FOLDER/dags/loans_dag.py --cfg_path /var/folders/54/73llq3hj17l3d8lq2zh93p_mmhwfff/T/tmpe0p6bx6_']
+[2019-01-09 23:46:18,121] {base_task_runner.py:101} INFO - Job 73: Subtask load_loans [2019-01-09 23:46:18,121] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2019-01-09 23:46:18,263] {base_task_runner.py:101} INFO - Job 73: Subtask load_loans [2019-01-09 23:46:18,263] {models.py:271} INFO - Filling up the DagBag from /Users/svysyara/PycharmProjects/loans_data/dags/loans_dag.py
+[2019-01-09 23:46:18,903] {base_task_runner.py:101} INFO - Job 73: Subtask load_loans [2019-01-09 23:46:18,903] {cli.py:484} INFO - Running <TaskInstance: loans_dag.load_loans 2019-01-01T00:00:00+00:00 [running]> on host 784f43584f2d.ant.amazon.com
+[2019-01-09 23:46:18,919] {logging_mixin.py:95} INFO - [2019-01-09 23:46:18,919] {utils.py:48} INFO - Found empty file /tmp/loans/2019-01-01/loan.csv, added zero rows
+[2019-01-09 23:46:18,919] {python_operator.py:96} INFO - Done. Returned value was: False
+[2019-01-09 23:46:18,919] {python_operator.py:151} INFO - Condition result is False
+[2019-01-09 23:46:18,920] {python_operator.py:157} INFO - Skipping downstream tasks...
+[2019-01-09 23:46:18,925] {python_operator.py:165} INFO - Done.
+[2019-01-09 23:46:22,549] {logging_mixin.py:95} INFO - [2019-01-09 23:46:22,549] {jobs.py:2627} INFO - Task exited with return code 0

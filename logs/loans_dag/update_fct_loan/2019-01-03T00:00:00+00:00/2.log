@@ -1,0 +1,33 @@
+[2019-01-09 23:49:06,430] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.update_fct_loan 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:49:06,434] {models.py:1361} INFO - Dependencies all met for <TaskInstance: loans_dag.update_fct_loan 2019-01-03T00:00:00+00:00 [queued]>
+[2019-01-09 23:49:06,434] {models.py:1573} INFO - 
+--------------------------------------------------------------------------------
+Starting attempt 2 of 3
+--------------------------------------------------------------------------------
+
+[2019-01-09 23:49:06,441] {models.py:1595} INFO - Executing <Task(PythonOperator): update_fct_loan> on 2019-01-03T00:00:00+00:00
+[2019-01-09 23:49:06,441] {base_task_runner.py:118} INFO - Running: ['bash', '-c', 'airflow run loans_dag update_fct_loan 2019-01-03T00:00:00+00:00 --job_id 80 --raw -sd DAGS_FOLDER/dags/loans_dag.py --cfg_path /var/folders/54/73llq3hj17l3d8lq2zh93p_mmhwfff/T/tmpliwy4n56']
+[2019-01-09 23:49:07,001] {base_task_runner.py:101} INFO - Job 80: Subtask update_fct_loan [2019-01-09 23:49:07,001] {__init__.py:51} INFO - Using executor SequentialExecutor
+[2019-01-09 23:49:07,138] {base_task_runner.py:101} INFO - Job 80: Subtask update_fct_loan [2019-01-09 23:49:07,138] {models.py:271} INFO - Filling up the DagBag from /Users/svysyara/PycharmProjects/loans_data/dags/loans_dag.py
+[2019-01-09 23:49:07,586] {base_task_runner.py:101} INFO - Job 80: Subtask update_fct_loan [2019-01-09 23:49:07,578] {cli.py:484} INFO - Running <TaskInstance: loans_dag.update_fct_loan 2019-01-03T00:00:00+00:00 [running]> on host 784f43584f2d.ant.amazon.com
+[2019-01-09 23:49:07,617] {logging_mixin.py:95} INFO - [2019-01-09 23:49:07,617] {__init__.py:29} INFO - Executing sql:
+
+INSERT OR REPLACE INTO fct_loan (id, member_id, loan_amnt, funded_amnt, term, int_rate, installment, grade, sub_grade, verification_status, issue_d, payment_plan, revol_bal, total_pymnt)
+SELECT id,
+       member_id,
+       loan_amnt,
+       funded_amnt,
+       term,
+       int_rate,
+       installment,
+       grade,
+       sub_grade,
+       verification_status,
+       issue_d,
+       pymnt_plan,
+       revol_bal,
+       total_pymnt
+FROM loan
+WHERE issue_d = '2019-01-03'
+[2019-01-09 23:49:08,893] {python_operator.py:96} INFO - Done. Returned value was: None
+[2019-01-09 23:49:11,425] {logging_mixin.py:95} INFO - [2019-01-09 23:49:11,424] {jobs.py:2627} INFO - Task exited with return code 0
