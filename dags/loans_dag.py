@@ -14,7 +14,7 @@ from airflow.contrib.sensors.python_sensor import PythonSensor
 default_args = {
     'owner': 'Sarat Vysyaraju',
     'start_date': datetime.datetime(2019, 1, 1, 0, 0),
-    'depends_on_past': False,                                # Ensure present run waits for previous dag run
+    'depends_on_past': True,                                # Ensure present run waits for previous dag run
     'email': ['saratchandra9494@gmail.com'],
     'email_on_failure': True,
     'email_on_retry': False,
